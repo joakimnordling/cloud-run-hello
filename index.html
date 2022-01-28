@@ -163,39 +163,10 @@ code {
 		<div class="details">
 			<p>
 				{{ if and .Project (and .Region .Service)  }}
-					This created the revision <code>{{.Revision}}</code> of the Cloud Run service <code>{{.Service}}</code>
-					{{if .Region}} in <code>{{.Region}}</code>{{end}}
-					{{if .Project}} in the GCP project <code>{{.Project}}</code>{{end}}.
+					This container seems to be running on Cloud Run.
 				{{ else }}
 					This container <strong>does not</strong> seem to be running
 					on Cloud Run.
-				{{ end }}
-			</p>
-
-			{{ with .AuthenticatedEmail }}
-				<p>
-					You are authenticated as
-					<code>{{.}}</code>.
-				</p>
-			{{ end }}
-
-			<p class="callout">
-				You can deploy any container to Cloud Run that listens for HTTP requests on the port defined by the
-				<code>PORT</code> environment variable.
-				Cloud Run will scale automatically based on requests and you never have to worry about
-				infrastructure.
-			</p>
-
-			<h3>What's next?</h3>
-			<p class="next">Follow the Quickstart tutorial to build a “Hello World” application in your favorite
-				language into
-				a container image, and then deploy it to Cloud Run.</p>
-			<p class="cta">
-				<a class="primary" href="https://cloud.google.com/run/docs/quickstarts/build-and-deploy" target="_blank" rel="noopener">
-					BUILD AND DEPLOY QUICKSTART</a>
-				{{ if and .Project (and .Region .Service)  }}
-				<a href="https://console.cloud.google.com/run/detail/{{.Region}}/{{.Service}}/metrics?project={{.Project}}" target="_blank" rel="noopener">
-					VIEW IN CLOUD CONSOLE</a>
 				{{ end }}
 			</p>
 		</div>
